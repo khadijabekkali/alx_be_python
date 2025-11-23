@@ -7,13 +7,18 @@ def display_menu():
 
 
 def main():
-    shopping_list = []
+    shopping_list = []  # Implementation of array/list
 
     while True:
-        display_menu()
-        choice = input("Enter your choice: ").strip()
+        display_menu()  # Calling display_menu
 
-        if choice == '1':
+        try:
+            choice = int(input("Enter your choice: "))  # Choice as number
+        except ValueError:
+            print("Invalid choice. Please enter a number.")
+            continue
+
+        if choice == 1:
             item = input("Enter the item to add: ").strip()
             if item:
                 shopping_list.append(item)
@@ -21,7 +26,7 @@ def main():
             else:
                 print("Item name cannot be empty.")
 
-        elif choice == '2':
+        elif choice == 2:
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
                 shopping_list.remove(item)
@@ -29,7 +34,7 @@ def main():
             else:
                 print(f"'{item}' not found in the shopping list.")
 
-        elif choice == '3':
+        elif choice == 3:
             if shopping_list:
                 print("Current Shopping List:")
                 for i, item in enumerate(shopping_list, start=1):
@@ -37,7 +42,7 @@ def main():
             else:
                 print("Your shopping list is currently empty.")
 
-        elif choice == '4':
+        elif choice == 4:
             print("Goodbye!")
             break
 
