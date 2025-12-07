@@ -13,38 +13,31 @@ class Book:
 # Derived class: EBook
 class EBook(Book):
     def __init__(self, title, author, file_size):
-        # Call base class constructor
-        super().__init__(title, author)
-        self.file_size = file_size  # in KB
+        super().__init__(title, author)  # Call base class constructor
+        self.file_size = file_size       # Additional attribute in KB
 
     def details(self):
-        # Return string for EBook
         return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
 
 # Derived class: PrintBook
 class PrintBook(Book):
     def __init__(self, title, author, page_count):
-        # Call base class constructor
-        super().__init__(title, author)
-        self.page_count = page_count
+        super().__init__(title, author)  # Call base class constructor
+        self.page_count = page_count     # Additional attribute
 
     def details(self):
-        # Return string for PrintBook
         return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
 
 # Library class demonstrating composition
 class Library:
     def __init__(self):
-        # Initialize an empty list of books
-        self.books = []
+        self.books = []  # Store Book, EBook, or PrintBook instances
 
     def add_book(self, book):
-        # Add a Book, EBook, or PrintBook to the library
-        self.books.append(book)
+        self.books.append(book)  # Add book instance to library
 
     def list_books(self):
-        # Print details of all books
         for book in self.books:
-            print(book.details())
+            print(book.details())  # Print detail
