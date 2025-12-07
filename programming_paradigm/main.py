@@ -1,33 +1,17 @@
-# main.py
-import sys
-
-def safe_divide(numerator, denominator):
-    """
-    Safely divide two numbers, handling zero division and invalid inputs.
-    """
-    try:
-        num = float(numerator)
-        den = float(denominator)
-        return num / den
-    except ZeroDivisionError:
-        return "Error: Cannot divide by zero."
-    except ValueError:
-        return "Error: Invalid number."
+from oop.library_system import Book, EBook, PrintBook, Library
 
 def main():
-    # Check that exactly two arguments are provided
-    if len(sys.argv) != 3:
-        print("Usage: python main.py <numerator> <denominator>")
-        sys.exit(1)
+    my_library = Library()
 
-    numerator = sys.argv[1]
-    denominator = sys.argv[2]
+    classic_book = Book("Pride and Prejudice", "Jane Austen")
+    digital_novel = EBook("Snow Crash", "Neal Stephenson", 500)
+    paper_novel = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
 
-    # Call the safe_divide function
-    result = safe_divide(numerator, denominator)
+    my_library.add_book(classic_book)
+    my_library.add_book(digital_novel)
+    my_library.add_book(paper_novel)
 
-    # Print the result
-    print(result)
+    my_library.list_books()
 
 if __name__ == "__main__":
     main()
